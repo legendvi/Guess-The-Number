@@ -33,6 +33,7 @@ hscore = 0
 T = 1
 document.querySelector('.score').textContent = score
 gus = document.querySelector('.start').textContent
+s = document.querySelector('.number').value = ''
 
 
 
@@ -40,9 +41,10 @@ gus = document.querySelector('.start').textContent
 btn = document.querySelector('.btn')
 
 btn.addEventListener('click', function () {
-    s = Number(document.querySelector('.number').value)
+    a = (document.querySelector('.number').value)
+    s = Number(a)
     console.log(s, typeof (s))
-
+    console.log(String(0))
 
     if (s == sec_num || T == 0) {
         document.querySelector('.start').textContent = 'Hurray!! you won the Game :).click play again to play again'
@@ -55,8 +57,9 @@ btn.addEventListener('click', function () {
         }
     }
 
-    else if (String(s) == '') {
+    else if (String(a) == '') {
         gus = 'No Number Given'
+        console.log(gus)
         document.querySelector('.start').textContent = 'No Number Entered'
     }
     else if (score == 0) {
@@ -68,15 +71,15 @@ btn.addEventListener('click', function () {
 
     else if (s < 1 || s > 20) {
         document.querySelector('.start').textContent = 'Number not in right Range🙂'
-        score -= 1
+
     }
 
-    else if (s > sec_num) {
+    else if (s < 21 && s > sec_num) {
         document.querySelector('.start').textContent = 'Too High'
         score -= 1
         document.querySelector('.score').textContent = score
     }
-    else if (s < sec_num) {
+    else if (s < sec_num && s > 0) {
         document.querySelector('.start').textContent = "Too Low"
         score -= 1
         document.querySelector('.score').textContent = score
